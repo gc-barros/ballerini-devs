@@ -5,7 +5,6 @@ import Cabecalho from './components/Cabecalho';
 import Home from './pages/Home'
 import Devs from './pages/Devs'
 import NoMatch from './pages/NoMatch'
-import Options from './components/Options'
 
 function RoutesApp() {
   return (

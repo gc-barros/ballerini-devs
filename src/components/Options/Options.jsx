@@ -2,8 +2,7 @@ import React from "react";
 import './style.css'
 import { MdPersonAddAlt1 } from 'react-icons/md'
 
-function Options() {
-
+function Options({ handleModal }) {
 
   return (
     <div className="options-container">
@@ -13,8 +12,8 @@ function Options() {
           placeholder="Buscar"
           className="input options__buscar"
         />
-        <button className="button options__button">
-          <MdPersonAddAlt1/> Adicionar novo dev
+        <button className="button options__button" onClick={() => handleModal()}>
+          <MdPersonAddAlt1/> Adicionar dev
         </button>
       </div>
     </div>

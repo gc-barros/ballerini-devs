@@ -25,7 +25,8 @@
 }
 
 .options__buscar {
-  font-size: 20px;
+  font-size: 16px;
+  width: 280px;
   padding-left: 46px;
   padding-top: 6px;
   background-image: url(../../assets/img/icons/feather_search.png);
@@ -34,7 +35,7 @@
 }
 
 .options__buscar::placeholder {
-  font-weight: 600;
+  font-weight: 500;
   color: #999999;
 }
 
