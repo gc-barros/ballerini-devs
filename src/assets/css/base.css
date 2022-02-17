@@ -1,0 +1,53 @@
+@import url(./normalize.css);
+@import url(./reset.css);
+@import url('https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500;600;700;800;900&family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+:root {
+  /* Colors */
+  --black: #1D1D1D;
+  --white: #F9F9F9;
+  --green: #27AE60;
+  --grey: #A9A9A9;
+  --yellow: #DBB801;
+  --red: #F42626;
+
+  /* Fonts */
+  --maven: 'Maven Pro', sans-serif;
+  --overpass: 'Overpass', sans-serif;
+}
+ 
+body {
+  background-color: var(--black);
+  color: var(--white);
+  font-family: var(--overpass);
+  box-sizing: border-box;
+}
+
+.input {
+  background-color: #FFFFFF;
+  border-radius: 55px;
+  border: 0;
+  height: 45px;
+  outline: 0;
+  box-sizing: border-box;
+}
+
+.button {
+  box-sizing: border-box;
+  background: var(--green);
+  border: 0;
+  color: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--maven);
+  padding: 0 20px;
+  cursor: pointer;
+  transition: .4s;
+  border-radius: 55px;
+}
+
+.button:hover {
+  filter: brightness(1.15);
+}

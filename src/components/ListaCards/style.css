@@ -1,0 +1,95 @@
+.listaDevs {
+  display: flex;
+  justify-content: center;
+  margin-top: 80px;
+}
+
+.listaDevs__card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  width: 300px;
+  flex-direction: column;
+  background-color: rgba(249, 249, 249, 0.14);
+  border-radius: 10px;
+  font-family: var(--maven);
+  margin: 0 50px;
+  position: relative;
+}
+
+.card__avatar {
+  width: 175px;
+  border-radius: 50%;
+  border: 2px solid var(--green);
+}
+
+.card__nome {
+  font-weight: 500;
+  font-size: 25.6413px;
+  line-height: 30px;
+}
+
+.card__nome::before {
+  content: '';
+  display: block;
+  width: 125px;
+  background-color: var(--green);
+  height: 2px;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.card__cargo {
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+}
+
+.card__social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 34px;
+}
+
+.card__social a {
+  margin: 0 6px;
+  transition: .4s;
+}
+
+.card__social a:hover {
+  transform: translateY(-4px);
+}
+
+.card__actions {
+  position: absolute;
+  top: 16px;
+  right: 8px;
+}
+
+.card__actions button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: #f9f9f9;
+}
+
+.card__actions button > svg {
+  font-size: 24px;
+  transition: .3s;
+}
+
+.action__edit:hover {
+  color: #DBB801;
+}
+
+.action__delete:hover {
+  color: #F42626;
+}
+
+.card__button {
+  height: 100%;
+  margin-left: 16px;
+}

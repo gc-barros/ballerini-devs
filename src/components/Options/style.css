@@ -1,0 +1,52 @@
+.options-container {
+  overflow: hidden;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 48px;
+  right: 10%;
+  animation: chegar 1s;
+}
+
+@keyframes chegar {
+  from {
+    transform: translateX(100px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.options.hidden {
+  visibility: hidden;
+}
+
+.options__buscar {
+  font-size: 20px;
+  padding-left: 46px;
+  padding-top: 6px;
+  background-image: url(../../assets/img/icons/feather_search.png);
+  background-repeat: no-repeat;
+  background-position: 11px center;
+}
+
+.options__buscar::placeholder {
+  font-weight: 600;
+  color: #999999;
+}
+
+.options__button {
+  position: absolute;
+  bottom: -70px;
+  right: 0;
+  height: 45px;
+  font-size: 16px;
+}
+
+.options__button > svg {
+  font-size: 24px;
+  margin-right: 8px;
+}
