@@ -1,20 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./style.css";
 import GitHubButton from "../../assets/img/icons/icone github.png";
 import LinkedinButton from "../../assets/img/icons/icone linkedin.png";
 import { MdEdit, MdDelete } from "react-icons/md";
 
-function ListaCards({ devsData, deletarDev }) {
-  const [noDevs, setNoDevs] = useState(false);
-
-  useEffect(() => {
-    if (devsData.length === 0) {
-      setNoDevs(true);
-    } else {
-      setNoDevs(false)
-    }
-  }, [devsData])
-
+function ListaCards({ devsData, deletarDev, noDevs }) {
+ 
   return (
     <ul className="listaDevs">
         {noDevs && "Ainda não há devs cadastrados."}

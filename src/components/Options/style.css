@@ -8,15 +8,15 @@
   position: absolute;
   top: 48px;
   right: 10%;
-  animation: chegar 1s;
+  animation: chegar 3s;
 }
 
 @keyframes chegar {
   from {
-    transform: translateX(100px);
+    opacity: 0;
   }
   to {
-    transform: translateX(0);
+    opacity: 1;
   }
 }
 

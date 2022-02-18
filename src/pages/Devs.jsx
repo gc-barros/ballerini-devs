@@ -1,28 +1,32 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ListaCards from "../components/ListaCards";
 import Modal from "../components/Modal/Modal";
 import Options from "../components/Options"
+import { deleteItem, getSavedItems, saveItem } from "../services/storeDevs";
 
 function Devs() {
 
-  const [devsData, setDevsData] = useState([
+  const [devsData, setDevsData] = useState([]);
+
+  const [showModalAdd, setShowModalAdd] = useState(false);
+  const [noDevs, setNoDevs] = useState(false);
+
+  /*
+  const myFavoriteDevs = [
     {
       nome: "Gabriel Barros",
-      avatar: "https://github.com/gc-barros.png",
       cargo: "Desenvolvedor front-end",
-      github: "https://github.com/gc-barros",
+      gituser: "gc-barros",
       linkedin: "https://www.linkedin.com/in/gabriel-barros-526ab7127/",
     },
     {
       nome: "Rafaella Ballerini",
-      avatar: "https://github.com/rafaballerini.png",
       cargo: "Instrutora front-end",
-      github: "https://github.com/rafaballerini",
+      gituser: "rafaballerini",
       linkedin: "https://www.linkedin.com/in/rafaellaballerini/",
     },
-  ]);
-
-  const [showModalAdd, setShowModalAdd] = useState(false);
+  ];
+  */
 
   function handleModalAdd() {
     if (showModalAdd) {
@@ -41,20 +45,57 @@ function Devs() {
       linkedin: linkedin,
     };
 
+    // Se já tiver um dev salvo, eu não vou deixar duplicar
+    const hasItem = devsData.some((item) => item.avatar === novoDev.avatar);
+
+    if (hasItem) {
+      alert("Este dev já está cadastrado!");
+      return;
+    }
+
+    if (noDevs) {
+      setNoDevs(false)
+    }
+
     const novoEstado = [...devsData, novoDev];
     setDevsData(novoEstado);
+
+    saveItem(novoDev);
   }
 
-  function deletarDev(key) {
-    const novoEstado = devsData.filter((dev, indice) => indice !== key);
-    setDevsData(novoEstado);
+  // adicionarDev(devsData[0]);
+
+  async function deletarDev(key) {
+    const result = await deleteItem(devsData, key);
+
+    if (result.length === 0) {
+      // Não há mais devs
+      setNoDevs(true);
+    }
+
+    setDevsData(result);
   }
+
+  useEffect(() => {
+    async function getItems() {
+      const result = await getSavedItems();
+
+      if (result.length === 0) {
+        // Nossa lista está vazia...
+        setNoDevs(true);
+      }
+
+      setDevsData(result);
+    }
+
+    getItems();
+  }, []);
 
   return (
     <>
       <Options handleModal={handleModalAdd} />
       {showModalAdd && <Modal handleModal={handleModalAdd} adicionarDev={adicionarDev}/>}
-      <ListaCards devsData={devsData} deletarDev={deletarDev}/>
+      <ListaCards devsData={devsData} deletarDev={deletarDev} noDevs={noDevs} />
     </>
   );
 }

@@ -67,8 +67,12 @@ function Modal({ handleModal, adicionarDev }) {
           className="button"
           onClick={(event) => {
             event.preventDefault();
-            adicionarDev(nome, cargo, gituser, linkedin);
-            handleModal();
+            if (nome !== "" && cargo !== "" && gituser !== "") {
+              adicionarDev(nome, cargo, gituser, linkedin);
+              handleModal();
+            } else {
+              alert("Dados inválidos!")
+            }
           }}
         >
           Adicionar
