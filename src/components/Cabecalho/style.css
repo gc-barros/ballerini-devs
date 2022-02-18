@@ -1,5 +1,5 @@
 .cabecalho {
-  padding: 60px 0px;
+  padding: 60px 16px;
   max-width: 1200px;
   margin: auto;
   display: flex;
@@ -30,5 +30,17 @@
 }
 
 .cabecalho__social--link:hover {
-  filter: brightness(1.2);
+  filter: brightness(2);
+}
+
+@media screen and (max-width: 768px) {
+  .cabecalho {
+    flex-direction: column-reverse;
+  }
+
+  .cabecalho__logo {
+    position: static;
+    transform: none;
+    margin-bottom: 16px;
+  }
 }

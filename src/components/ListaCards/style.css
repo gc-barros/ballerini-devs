@@ -20,8 +20,10 @@
 
 .card__avatar {
   width: 175px;
+  height: 175px;
   border-radius: 50%;
   border: 2px solid var(--green);
+  background-color: var(--green);
 }
 
 .card__nome {
