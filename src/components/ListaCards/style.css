@@ -131,6 +131,7 @@
   text-align: center;
   margin-bottom: 24px;
   color: #ececec;
+  line-height: 1.2;
 }
 
 .listaDevs__monkey span {
@@ -139,12 +140,16 @@
   text-align: center;
   color: #6FCF97;
   font-weight: 600;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 
 @media screen and (max-width: 1023px) {
   .listaDevs{
     margin-top: 200px;
     padding-bottom: 80px;
+  }
+
+  .listaDevs__monkey span {
+    display: block;
   }
 }
