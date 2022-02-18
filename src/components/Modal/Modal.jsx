@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./style.css";
 import { RiCloseFill } from "react-icons/ri";
+import { MdPersonAddAlt1 } from "react-icons/md";
 
 function Modal({ handleModal, adicionarDev }) {
 
@@ -12,7 +13,10 @@ function Modal({ handleModal, adicionarDev }) {
   return (
     <div className="overlay">
       <form className="modal">
-        <h2>Adicionar novo dev</h2>
+        <h2>
+          <MdPersonAddAlt1 />
+          Novo dev
+        </h2>
 
         <label htmlFor="nome">Nome:</label>
         <input

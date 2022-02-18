@@ -23,6 +23,7 @@
   padding: 32px 24px;
   position: relative;
   animation: subir .8s;
+  margin: 0 8px;
 }
 
 @keyframes subir {
@@ -71,6 +72,14 @@
   font-size: 32px;
   line-height: 41px;
   margin-bottom: 24px;
+  align-self: flex-start;
+}
+
+.modal h2 > svg {
+  color: #2DC86E;
+  vertical-align: middle;
+  padding-bottom: 8px;
+  margin-right: 8px;
 }
 
 .modal .button {
