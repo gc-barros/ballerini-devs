@@ -3,12 +3,33 @@ import "./style.css";
 import GitHubButton from "../../assets/img/icons/icone github.png";
 import LinkedinButton from "../../assets/img/icons/icone linkedin.png";
 import { MdEdit, MdDelete } from "react-icons/md";
+import Lottie from "react-lottie";
+import monkey from '../../assets/img/monkey.json'
+
+function Monkey() {
+   const defaultOptions = {
+     loop: true,
+     autoplay: true,
+     animationData: monkey,
+     rendererSettings: {
+       preserveAspectRatio: "xMidYMid slice",
+     },
+   };
+
+  return (
+    <div className="listaDevs__monkey">
+      <span>Tudo calmo por aqui... 😴</span>
+      <h2>Ainda não há devs cadastrados.</h2>
+      <Lottie options={defaultOptions} />
+    </div>
+  );
+}
 
 function ListaCards({ devsData, deletarDev, noDevs }) {
- 
+
   return (
     <ul className="listaDevs">
-        {noDevs && "Ainda não há devs cadastrados."}
+        {noDevs && <Monkey />}
         {devsData.map((dev, key) => (
           <li className="listaDevs__card" key={key}>
             <img

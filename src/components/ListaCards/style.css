@@ -120,6 +120,28 @@
   color: var(--green);
 }
 
+.listaDevs svg {
+  display: block;
+  max-width: 240px;
+  margin: auto;
+}
+
+.listaDevs__monkey h2 {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 24px;
+  color: #ececec;
+}
+
+.listaDevs__monkey span {
+  display: inline-block;
+  font-size: 20px;
+  text-align: center;
+  color: #6FCF97;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
 @media screen and (max-width: 1023px) {
   .listaDevs{
     margin-top: 200px;
