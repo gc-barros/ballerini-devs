@@ -2,6 +2,9 @@
   display: flex;
   justify-content: center;
   margin-top: 80px;
+  flex-wrap: wrap;
+  gap: 50px;
+  padding: 0 8px;
 }
 
 .listaDevs__card {
@@ -14,8 +17,8 @@
   background-color: rgba(249, 249, 249, 0.14);
   border-radius: 10px;
   font-family: var(--maven);
-  margin: 0 50px;
   position: relative;
+  border: 1px solid rgba(249, 249, 249, 0.137);
 }
 
 .card__avatar {
@@ -47,6 +50,11 @@
   font-weight: 400;
   font-size: 15px;
   line-height: 18px;
+  padding: 4px 16px;
+  border-radius: 16px;
+  background-color: #27ae5f65;
+  border: 1px solid #27AE60;
+  margin-top: 8px;
 }
 
 .card__social {
@@ -94,4 +102,11 @@
 .card__button {
   height: 100%;
   margin-left: 16px;
+}
+
+@media screen and (max-width: 1023px) {
+  .listaDevs{
+    margin-top: 200px;
+    padding-bottom: 80px;
+  }
 }

@@ -9,6 +9,7 @@
   height: 100vh;
   width: 100vw;
   z-index: 2;
+  animation: esmaecer .4s;
 }
 
 .modal {
@@ -21,7 +22,27 @@
   align-items: center;
   padding: 32px 24px;
   position: relative;
+  animation: subir .8s;
 }
+
+@keyframes subir {
+  from {
+    transform: translate3d(0, 80px, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes esmaecer {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 
 .modal label {
   margin-right: auto;
@@ -39,6 +60,10 @@
   height: 40px;
   margin-top: 8px;
   margin-bottom: 24px;
+}
+
+.modal input::placeholder {
+  color: rgb(185, 185, 185);
 }
 
 .modal h2 {

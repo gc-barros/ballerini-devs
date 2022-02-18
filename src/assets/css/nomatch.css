@@ -1,0 +1,19 @@
+.nomatch__ilustracao {
+  max-width: 320px;
+  margin: auto;
+}
+
+.nomatch__action h1 {
+  font-size: 20px;
+  text-align: center;
+}
+
+.nomatch__action a {
+  display: block;
+  max-width: 160px;
+  margin: auto;
+  text-align: center;
+  text-decoration: none;
+  padding: 12px 4px;
+  margin-top: 16px;
+}
