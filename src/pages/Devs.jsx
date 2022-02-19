@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import ListaCards from "../components/ListaCards";
 import Modal from "../components/Modal/Modal";
 import Options from "../components/Options";
+import ShowInfo from "../components/ShowInfo";
 import { deleteItem, getSavedItems, saveItem, editItem } from "../services/storeDevs";
 
 function Devs() {
@@ -9,8 +10,10 @@ function Devs() {
 
   const [showModalAdd, setShowModalAdd] = useState(false);
   const [showModalEdit, setShowModalEdit] = useState(false);
+  const [showInfo, setShowInfo] = useState(false);
 
   const [noDevs, setNoDevs] = useState(false);
+  const [userInfo, setUserInfo] = useState();
 
   const [editDev, setEditDev] = useState({
     nome: "",
@@ -56,6 +59,14 @@ function Devs() {
     } else {
       setShowModalEdit(true);
       setEditDev(devsData[key]);
+    }
+  }
+
+  function handleShowInfo() {
+    if (showInfo) {
+      setShowInfo(false);
+    } else {
+      setShowInfo(true);
     }
   }
 
@@ -133,7 +144,14 @@ function Devs() {
 
   return (
     <>
-      <Options handleModal={handleModalAdd} devsData={devsData} setDevsData={setDevsData} />
+      {showInfo && (
+        <ShowInfo gituser={userInfo} handleShowInfo={handleShowInfo} />
+      )}
+      <Options
+        handleModal={handleModalAdd}
+        devsData={devsData}
+        setDevsData={setDevsData}
+      />
       {showModalAdd && (
         <Modal
           handleModal={handleModalAdd}
@@ -155,6 +173,8 @@ function Devs() {
         deletarDev={deletarDev}
         handleModalEdit={handleModalEdit}
         noDevs={noDevs}
+        setUserInfo={setUserInfo}
+        handleShowInfo={handleShowInfo}
       />
     </>
   );
