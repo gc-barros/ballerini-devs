@@ -13,7 +13,7 @@ function Cabecalho() {
     <header className="cabecalho">
       <div className="cabecalho__social">
         <a
-          href="https://www.linkedin.com/company/comunidadeballerini/"
+          href="https://www.linkedin.com/in/gabriel-barros-526ab7127/"
           title="LinkedIn"
           className="cabecalho__social--link"
           target="_blank"
@@ -31,7 +31,7 @@ function Cabecalho() {
           <img src={facebookIcon} alt="Facebook" />
         </a>
         <a
-          href="https://www.discord.com/"
+          href="https://discord.gg/wagxzStdcR"
           title="Discord"
           className="cabecalho__social--link"
           target="_blank"
