@@ -133,7 +133,7 @@ function Devs() {
 
   return (
     <>
-      <Options handleModal={handleModalAdd} />
+      <Options handleModal={handleModalAdd} devsData={devsData} setDevsData={setDevsData} />
       {showModalAdd && (
         <Modal
           handleModal={handleModalAdd}
