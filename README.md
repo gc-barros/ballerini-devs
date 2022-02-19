@@ -22,4 +22,9 @@ ___
 - Dados armazenados no localStorage do navegador.
 - Botão 'saiba mais' exibe informações do GitHub do usuário, via GitHub API.
 
+___
+
+## Instalação:
+### `npm install`
+### `npm start`
 
