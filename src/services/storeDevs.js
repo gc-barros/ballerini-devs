@@ -28,3 +28,11 @@ export function deleteItem(items, id) {
 
   return myItems;
 }
+
+export async function editItem(newItem, id) {
+  let savedItems = await getSavedItems(key);
+
+  // Adicionar novo item na lista
+  savedItems.splice(id, 1, newItem);
+  await localStorage.setItem(key, JSON.stringify(savedItems));
+}

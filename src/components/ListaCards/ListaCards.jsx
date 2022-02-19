@@ -25,7 +25,7 @@ function Monkey() {
   );
 }
 
-function ListaCards({ devsData, deletarDev, noDevs }) {
+function ListaCards({ devsData, deletarDev, noDevs, handleModalEdit }) {
 
   return (
     <ul className="listaDevs">
@@ -60,7 +60,9 @@ function ListaCards({ devsData, deletarDev, noDevs }) {
             </div>
 
             <div className="card__actions">
-              <button className="action__edit">
+              <button className="action__edit" onClick={() => {
+                handleModalEdit(key)
+              }}>
                 <MdEdit />
               </button>
               <button

@@ -2,23 +2,24 @@ import React, { useState } from "react";
 import "./style.css";
 import { RiCloseFill } from "react-icons/ri";
 import { MdPersonAddAlt1 } from "react-icons/md";
+import { FaUserEdit } from "react-icons/fa"
 
-function Modal({ handleModal, adicionarDev }) {
+function Modal({ handleModal, actionDev, tipo, editDev }) {
 
-  const [nome, setNome] = useState('');
-  const [cargo, setCargo] = useState('');
-  const [gituser, setGituser] = useState('');
-  const [linkedin, setLinkedin] = useState('');
+  const [nome, setNome] = useState(editDev.nome);
+  const [cargo, setCargo] = useState(editDev.cargo);
+  const [gituser, setGituser] = useState(editDev.gituser);
+  const [linkedin, setLinkedin] = useState(editDev.linkedin);
 
   return (
     <div className="overlay">
       <form className="modal">
         <h2>
-          <MdPersonAddAlt1 />
-          Novo dev
+          {tipo === "Adicionar" ? <MdPersonAddAlt1 /> : <FaUserEdit />}
+          {tipo} dev
         </h2>
 
-        <label htmlFor="nome">Nome:</label>
+        <label htmlFor="nome">Nome*</label>
         <input
           id="nome"
           type="text"
@@ -30,7 +31,7 @@ function Modal({ handleModal, adicionarDev }) {
           }}
         />
 
-        <label htmlFor="cargo">Cargo:</label>
+        <label htmlFor="cargo">Cargo*</label>
         <input
           id="cargo"
           type="text"
@@ -41,8 +42,9 @@ function Modal({ handleModal, adicionarDev }) {
           }}
         />
 
-        <label htmlFor="github">GitHub username:</label>
+        <label htmlFor="github">GitHub username*</label>
         <input
+          disabled={tipo === "Editar"}
           id="github"
           type="text"
           placeholder="gc-barros"
@@ -52,7 +54,7 @@ function Modal({ handleModal, adicionarDev }) {
           }}
         />
 
-        <label htmlFor="linkedin">Linkedin:</label>
+        <label htmlFor="linkedin">Linkedin</label>
         <input
           id="linkedin"
           type="text"
@@ -68,14 +70,14 @@ function Modal({ handleModal, adicionarDev }) {
           onClick={(event) => {
             event.preventDefault();
             if (nome !== "" && cargo !== "" && gituser !== "") {
-              adicionarDev(nome, cargo, gituser, linkedin);
+              actionDev(nome, cargo, gituser, linkedin);
               handleModal();
             } else {
-              alert("Dados inválidos!")
+              alert("Dados inválidos!");
             }
           }}
         >
-          Adicionar
+          Salvar alterações
         </button>
 
         <button

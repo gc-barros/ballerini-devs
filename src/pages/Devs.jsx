@@ -1,15 +1,23 @@
 import React, { useState, useEffect } from "react";
 import ListaCards from "../components/ListaCards";
 import Modal from "../components/Modal/Modal";
-import Options from "../components/Options"
-import { deleteItem, getSavedItems, saveItem } from "../services/storeDevs";
+import Options from "../components/Options";
+import { deleteItem, getSavedItems, saveItem, editItem } from "../services/storeDevs";
 
 function Devs() {
-
   const [devsData, setDevsData] = useState([]);
 
   const [showModalAdd, setShowModalAdd] = useState(false);
+  const [showModalEdit, setShowModalEdit] = useState(false);
+
   const [noDevs, setNoDevs] = useState(false);
+
+  const [editDev, setEditDev] = useState({
+    nome: "",
+    cargo: "",
+    gituser: "",
+    linkedin: "",
+  });
 
   /*
   const myFavoriteDevs = [
@@ -36,6 +44,21 @@ function Devs() {
     }
   }
 
+  function handleModalEdit(key) {
+    if (showModalEdit) {
+      setShowModalEdit(false);
+      setEditDev({
+        nome: "",
+        cargo: "",
+        gituser: "",
+        linkedin: "",
+      });
+    } else {
+      setShowModalEdit(true);
+      setEditDev(devsData[key]);
+    }
+  }
+
   function adicionarDev(nome, cargo, gituser, linkedin) {
     const novoDev = {
       nome: nome,
@@ -43,10 +66,11 @@ function Devs() {
       cargo: cargo,
       github: `https://github.com/${gituser}`,
       linkedin: linkedin,
+      gituser: gituser,
     };
 
     // Se já tiver um dev salvo, eu não vou deixar duplicar
-    const hasItem = devsData.some((item) => item.avatar === novoDev.avatar);
+    const hasItem = devsData.some((item) => item.gituser === novoDev.gituser);
 
     if (hasItem) {
       alert("Este dev já está cadastrado!");
@@ -54,7 +78,7 @@ function Devs() {
     }
 
     if (noDevs) {
-      setNoDevs(false)
+      setNoDevs(false);
     }
 
     const novoEstado = [...devsData, novoDev];
@@ -63,7 +87,23 @@ function Devs() {
     saveItem(novoDev);
   }
 
-  // adicionarDev(devsData[0]);
+  function editarDev(nome, cargo, gituser, linkedin) {
+    let indice = devsData.findIndex((dev) => (dev.gituser === gituser));
+    
+    const newDataDev = {
+      nome: nome,
+      avatar: `https://github.com/${gituser}.png`,
+      cargo: cargo,
+      github: `https://github.com/${gituser}`,
+      linkedin: linkedin,
+      gituser: gituser,
+    };
+
+    devsData.splice(indice, 1, newDataDev);
+    editItem(newDataDev, indice);
+
+    console.log("Editar dev ", indice);
+  }
 
   async function deletarDev(key) {
     const result = await deleteItem(devsData, key);
@@ -94,8 +134,28 @@ function Devs() {
   return (
     <>
       <Options handleModal={handleModalAdd} />
-      {showModalAdd && <Modal handleModal={handleModalAdd} adicionarDev={adicionarDev}/>}
-      <ListaCards devsData={devsData} deletarDev={deletarDev} noDevs={noDevs} />
+      {showModalAdd && (
+        <Modal
+          handleModal={handleModalAdd}
+          actionDev={adicionarDev}
+          editDev={editDev}
+          tipo={"Adicionar"}
+        />
+      )}
+      {showModalEdit && (
+        <Modal
+          handleModal={handleModalEdit}
+          actionDev={editarDev}
+          editDev={editDev}
+          tipo={"Editar"}
+        />
+      )}
+      <ListaCards
+        devsData={devsData}
+        deletarDev={deletarDev}
+        handleModalEdit={handleModalEdit}
+        noDevs={noDevs}
+      />
     </>
   );
 }
