@@ -20,9 +20,11 @@ export async function saveItem(newItem) {
 }
 
 // Deletar algum link salvo.
-export function deleteItem(items, id) {
+export async function deleteItem(gituser) {
   
-  let myItems = items.filter((item, indice) => indice !== id);
+  let savedItems = await getSavedItems(key);
+
+  let myItems = savedItems.filter((item) => item.gituser !== gituser);
 
   localStorage.setItem(key, JSON.stringify(myItems));
 

@@ -3,14 +3,15 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 240px;
-  background-color: #3C3C3C;
+  width: 250px;
+  background-color: #3c3c3c;
   margin: 0 8px;
   border-radius: 10px;
   border: 1px solid rgba(249, 249, 249, 0.137);
   transition: .4s;
   position: relative;
   padding: 24px;
+  animation: subir .4s;
 }
 
 .showInfo .close-button {

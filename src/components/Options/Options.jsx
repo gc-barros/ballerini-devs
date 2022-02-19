@@ -23,7 +23,7 @@ function Options({ handleModal, devsData, setDevsData }) {
     if (busca === "") {
       getItems();
     }
-
+    
   }, [resultadosFiltrados])
 
   return (
@@ -33,7 +33,9 @@ function Options({ handleModal, devsData, setDevsData }) {
           type="text"
           placeholder="Buscar"
           className="input options__buscar"
-          onInput={(e) => {
+          value={busca}
+          onClick={() => {setBusca('')}}
+          onChange={(e) => {
             setBusca(e.target.value);
           }}
         />

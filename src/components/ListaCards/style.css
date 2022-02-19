@@ -19,11 +19,11 @@
   font-family: var(--maven);
   position: relative;
   border: 1px solid rgba(249, 249, 249, 0.137);
-  transition: .4s;
+  transition: .6s;
 }
 
 .listaDevs__card:hover {
-  transform: scale(1.02);
+  transform: scale(1.05);
 }
 
 .card__avatar {
@@ -38,6 +38,7 @@
   font-weight: 500;
   font-size: 25.6413px;
   line-height: 30px;
+  text-align: center;
 }
 
 .card__nome::before {

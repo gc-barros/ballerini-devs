@@ -98,8 +98,11 @@ function Devs() {
     saveItem(novoDev);
   }
 
-  function editarDev(nome, cargo, gituser, linkedin) {
-    let indice = devsData.findIndex((dev) => (dev.gituser === gituser));
+  async function editarDev(nome, cargo, gituser, linkedin) {
+
+    const storedDevs = await getSavedItems();
+    
+    let indice = storedDevs.findIndex((dev) => (dev.gituser === gituser));
     
     const newDataDev = {
       nome: nome,
@@ -110,14 +113,16 @@ function Devs() {
       gituser: gituser,
     };
 
-    devsData.splice(indice, 1, newDataDev);
-    editItem(newDataDev, indice);
-
-    console.log("Editar dev ", indice);
+    await editItem(newDataDev, indice)
+    .then(async () => {
+      const storedDevsAtt = await getSavedItems();
+      setDevsData(storedDevsAtt);
+      }
+    )
   }
 
-  async function deletarDev(key) {
-    const result = await deleteItem(devsData, key);
+  async function deletarDev(gituser) {
+    const result = await deleteItem(gituser);
 
     if (result.length === 0) {
       // Não há mais devs

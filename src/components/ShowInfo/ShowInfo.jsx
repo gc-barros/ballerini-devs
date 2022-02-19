@@ -34,7 +34,7 @@ function ShowInfo({ gituser, handleShowInfo }) {
           </div>
 
           <p className="showInfo__infos">
-            <p className="showInfo__name">{user?.name.split(' ')[0] + " " + user?.name.split(' ')[1][0] + "."}</p>
+            <p className="showInfo__name">{user?.name.split(' ')[0]}</p>
             <p className="showInfo__login">{user?.login}</p>
           </p>
 

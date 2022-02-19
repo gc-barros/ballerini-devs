@@ -79,7 +79,7 @@ function ListaCards({ devsData, deletarDev, noDevs, handleModalEdit, setUserInfo
             <button
               className="action__delete"
               onClick={() => {
-                deletarDev(key);
+                deletarDev(dev.gituser);
               }}
             >
               <MdDelete />
