@@ -1,4 +1,4 @@
-# ⚡ Ballerini Devs 💻
+# 💚 Ballerini Devs 👨‍💻👩‍💻
 
 🎯 <em>Resolução do desafio da Tech da Semana: React, da Comunidade Ballerini."</em>
 
