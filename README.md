@@ -2,7 +2,7 @@
 
 🎯 <em>Resolução do desafio da Tech da Semana: React, da Comunidade Ballerini."</em>
 
-#### 🔗 Confira em: https://barrosdev.com.br/
+#### 🔗 Confira em: https://ballerinidevs-gabito.netlify.app/
 
 ___
 
