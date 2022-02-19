@@ -16,6 +16,7 @@ ___
 - Adicionar as funções de editar, deletar e pesquisar por devs.
 
 ## 💛 Funcionalidade extras:
+- Sincronização da foto de perfil e link do GitHub com base no username informado.
 - Implementação de ilustrações animadas no design.
 - Criação de uma página 404.
 - Dados armazenados no localStorage do navegador.
