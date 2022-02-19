@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from "react";
-import './style.css'
+import "./style.css";
 import api from "../../services/api";
+import { RiCloseFill } from "react-icons/ri";
+import {
+  RiUserShared2Fill,
+  RiUserReceivedFill,
+  RiGitRepositoryFill,
+} from "react-icons/ri";
 
-function ShowInfo({gituser, handleShowInfo}) {
-
+function ShowInfo({ gituser, handleShowInfo }) {
   const [user, setUser] = useState();
 
   useEffect(() => {
@@ -18,17 +23,39 @@ function ShowInfo({gituser, handleShowInfo}) {
   return (
     <div className="overlay">
       <div className="showInfo">
-        <button onClick={() => handleShowInfo()}>Fechar</button>
-        <h1>Informações do GitHub: {user?.login}</h1>
-        <h1>
-          Avatar: <img src={user?.avatar_url} alt="" />
-        </h1>
-        <h2>Nome: {user?.name}</h2>
-        <h2>Bio: {user?.bio}</h2>
-        <h2>Seguidores: {user?.followers}</h2>
-        <h2>Seguindo: {user?.following}</h2>
-        <h2>Repositórios: {user?.public_repos}</h2>
-        <h2>Location: {user?.location}</h2>
+        <button className="close-button" onClick={() => handleShowInfo()}>
+          <RiCloseFill />
+        </button>
+
+        <div className="showInfo__dados">
+          <div className="showInfo__avatar">
+            <img src={user?.avatar_url} alt="" />
+          </div>
+
+          <p className="showInfo__infos">
+            <p className="showInfo__name">{user?.name}</p>
+            <p className="showInfo__login">{user?.login}</p>
+          </p>
+
+          <h2 className="showInfo__follow">
+            <p className="showInfo__infos">
+              <RiUserReceivedFill />
+              <span>{user?.followers}</span> seguidores
+            </p>
+            <p className="showInfo__infos">
+              <RiUserShared2Fill />
+              <span>{user?.following}</span> seguindo
+            </p>
+            <p className="showInfo__infos">
+              <RiGitRepositoryFill />
+              <span>{user?.public_repos}</span> repositórios
+            </p>
+          </h2>
+
+          <button className="button" onClick={() => {
+            window.open(user?.html_url, "_blank");
+          }}>Visitar perfil</button>
+        </div>
       </div>
     </div>
   );

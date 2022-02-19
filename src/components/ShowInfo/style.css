@@ -1,0 +1,81 @@
+.showInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 240px;
+  background-color: #3C3C3C;
+  margin: 0 8px;
+  border-radius: 10px;
+  border: 1px solid rgba(249, 249, 249, 0.137);
+  transition: .4s;
+  position: relative;
+  padding: 24px;
+}
+
+.showInfo .close-button {
+  top: 10px;
+  right: 10px;
+}
+
+.showInfo__avatar {
+  width: 140px;
+  margin: 16px auto;
+}
+
+.showInfo__avatar img {
+  border-radius: 50%;
+  height: 140px;
+  width: 100%;
+  background-color: var(--green);
+  border: 2px solid var(--green);
+}
+
+.showInfo__infos svg {
+  color: #a0a0a0;
+  margin-right: 8px;
+  transform: translateY(1px);
+}
+
+.showInfo__login {
+  color: #a0a0a0;
+  margin-top: 2px;
+  font-size: 20px;
+}
+
+.showInfo__dados {
+  display: flex;
+  flex-direction: column;
+}
+
+.showInfo__follow {
+  margin-top: 16px;
+}
+
+.showInfo__infos {
+  color: #a0a0a0;
+  font-weight: 300;
+  margin: 4px 0;
+}
+
+.showInfo__name {
+  font-size: 24px;
+}
+
+.showInfo__name, .showInfo__infos span {
+  color: #f9f9f9;
+  font-weight: 500;
+}
+
+.showInfo__dados .button {
+  height: 32px;
+  margin-top: 24px;
+  background-color: transparent;
+  border: 1px solid #F9F9F9;
+}
+
+.showInfo__dados .button:hover {
+  border-color: var(--green);
+  color: var(--green);
+}
+
