@@ -65,7 +65,7 @@
   width: 100vw;
   background-image: url(../img/Blobs\ baixo.svg);
   background-repeat: no-repeat;
-  background-position: left -40px;
+  background-position: left bottom;
   top: 0;
   left: 0;
   z-index: -1;
